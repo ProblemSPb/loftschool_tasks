@@ -19,9 +19,8 @@ const ALL_DRAWINGS = 80;
 const MARKER_PEN = 23;
 const PENCIL = 40;
 
-const WATERCOLOUR = ALL_DRAWINGS - MARKER_PEN - PENCIL;
+echo ALL_DRAWINGS - MARKER_PEN - PENCIL . "<br><br>";
 
-echo WATERCOLOUR . "<br><br>";
 
 // Задание #3
 echo "Задание #3<br>";
@@ -30,7 +29,7 @@ if ($age >= 18 && $age <= 65) {
     echo "Вам еще работать и работать";
 } elseif ($age > 65) {
     echo "Вам пора на пенсию";
-} elseif ($age >= 1 && $age <= 17) {
+} elseif ($age >= 1 && $age < 18) {
     echo "Вам ещё рано работать";
 } else {
     echo "Неизвестный возраст";
@@ -57,9 +56,9 @@ echo "<br><br>";
 // Задание #5
 echo "Задание #5<br>";
 
-$bmw = array("model" => "X5", "speed" => 120, "doors" => 5, "year" => "2015");
-$toyota = array("model" => "some model", "speed" => 140, "doors" => 4, "year" => "2016");
-$opel = array("model" => "another model", "speed" => 100, "doors" => 4, "year" => "2020");
+$bmw = ["model" => "X5", "speed" => 120, "doors" => 5, "year" => "2015"];
+$toyota = ["model" => "some model", "speed" => 140, "doors" => 4, "year" => "2016"];
+$opel = ["model" => "another model", "speed" => 100, "doors" => 4, "year" => "2020"];
 
 function printArray($name, $array)
 {

@@ -6,7 +6,7 @@
  */
 
 const TEST_CONSTANTA = 'asd';
-$user_name = "Igor";
+$username = "Igor";
 
 /**
  *  Function does something
