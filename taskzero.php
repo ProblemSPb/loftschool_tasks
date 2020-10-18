@@ -2,7 +2,7 @@
 /**
  * Short description for file
  *
- * Long description for file (if any)...
+ * В ИДЕАЛЕ ОБЪЯВЛЕНИЕ КОНСТАНТ И ФУНКЦИЙ ВЫНЕСТИ В ОТДЕЛЬНЫЕ ФАЙЛЫ
  */
 
 const TEST_CONSTANTA = 'asd';
