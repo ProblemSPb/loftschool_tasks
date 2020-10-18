@@ -1,19 +1,17 @@
 <?php
 
-function task1(array $array)
+function task1(array $array, bool $return = false)
 {
-    $args = func_get_args();
-
-    if (isset($args[1]) && $args[1] === true) {
+    if ($return) {
         $result = "";
         foreach ($array as $item) {
             $result .= $item;
         }
         return $result;
-    } else {
-        foreach ($array as $item) {
-            echo "<p> $item </p>";
-        }
+    }
+
+    foreach ($array as $item) {
+        echo "<p> $item </p>";
     }
 }
 
@@ -42,7 +40,13 @@ function task2(string $operator, float ...$nums)
                 $result = array_product($args);
                 break;
             case ("/"):
-                $result = 0;
+                $result = array_shift($args);
+                foreach ($args as $arg) {
+                    if ($arg == 0) {
+                        return "Делить на ноль нельзя.";
+                    }
+                    $result = $result / $arg;
+                }
                 break;
             default:
                 $result = "Это не похоже на математический оператор.";
@@ -51,8 +55,18 @@ function task2(string $operator, float ...$nums)
     return $result;
 }
 
-function task3(int $num1, int $num2)
+function task3($num1, $num2)
 {
+    if (!is_int($num1) | !is_int($num2)) {
+        echo "Что за таблица умножения без чисел? Введите числа.";
+        return false;
+    }
+
+    if ($num1 <= 0 | $num2 <= 0) {
+        echo "Введите числа больше нуля.";
+        return false;
+    }
+
     $cols = $num1;
     $rows = $num2;
 
@@ -68,18 +82,17 @@ function task3(int $num1, int $num2)
         echo "</tr>";
     }
     echo "</table>";
+    return true;
 }
-
 
 function task4()
 {
     date_default_timezone_set('Europe/Berlin');
     echo "Выведите информацию о текущей дате в формате 31.12.2016 23:59<br>";
-    echo date('d.m.Y H:i', time()) ."<br>";
+    echo date('d.m.Y H:i', time()) . "<br>";
 
     echo "Выведите unixtime время соответствующее 24.02.2016 00:00:00<br>";
     echo strtotime("24.02.2016 00:00:00");
-
 }
 
 function task5()
@@ -87,7 +100,7 @@ function task5()
     $string1 = "Карл у Клары украл Кораллы";
     $string2 = "Две бутылки лимонада";
 
-    echo str_replace("К", "", $string1) ."<br>";
+    echo str_replace("К", "", $string1) . "<br>";
     echo str_replace("Две", "Три", $string2);
 }
 
