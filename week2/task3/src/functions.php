@@ -27,15 +27,12 @@ function task1()
      * Преобразуйте массив в json и сохраните в файл users.json
      */
     $json_data = json_encode($user_data);
-    $fopen = fopen("users.json", "r+");
+    $file_pointer = fopen("users.json", "r+");
     file_put_contents("users.json", $json_data);
 
     /*
      *Откройте файл users.json и преобразуйте данные из него обратно ассоциативный массив РНР.
     */
-    // TODO: Вопрос: Нужно ли тут открывать новый стрим или можно использовать тот,
-    // TODO: который использовался для записи json данных?
-
     if (file_get_contents("users.json")) {
         $file_data = json_decode(file_get_contents("users.json"));
         echo "<b>Данные успешно получены</b><br><br>";
@@ -59,5 +56,5 @@ function task1()
         error_log("Error while getting the data from the file.");
         echo "Что-то пошло не так. Данные не были получены.";
     }
-    fclose($fopen);
+    fclose($file_pointer);
 }
